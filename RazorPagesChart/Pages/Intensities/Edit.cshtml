@@ -1,0 +1,50 @@
+@page
+@model RazorPagesChart.Pages.Intensities.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Intensity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Intensity.Id" />
+            <div class="form-group">
+                <label asp-for="Intensity.RoadSegmentId" class="control-label"></label>
+                <input asp-for="Intensity.RoadSegmentId" class="form-control" />
+                <span asp-validation-for="Intensity.RoadSegmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Intensity.Intenstiy" class="control-label"></label>
+                <input asp-for="Intensity.Intenstiy" class="form-control" />
+                <span asp-validation-for="Intensity.Intenstiy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Intensity.MeasureTime" class="control-label"></label>
+                <input asp-for="Intensity.MeasureTime" class="form-control" />
+                <span asp-validation-for="Intensity.MeasureTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Intensity.DbTemperatureid" class="control-label"></label>
+                <select asp-for="Intensity.DbTemperatureid" class="form-control" asp-items="ViewBag.DbTemperatureid"></select>
+                <span asp-validation-for="Intensity.DbTemperatureid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

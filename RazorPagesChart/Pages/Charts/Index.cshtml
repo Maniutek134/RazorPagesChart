@@ -1,0 +1,240 @@
+@page
+
+@model RazorPagesChart.Pages.Charts.IndexModel
+
+@{
+    ViewData["Title"] = "Chart";
+}
+
+<h1>Intensity chart</h1>
+
+<h4>Road id - @Model.RoadSegmentId</h4>
+
+<form>
+    <p>
+        <select asp-for="RoadSegmentId" asp-items="Model.RoadSegmentIds">
+            @*<option value="">All</option>*@
+        </select>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Temperature</h4>
+    </div>
+    <div class="col-md-12">
+        <canvas id="tempChart"></canvas>
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Pressure</h4>
+    </div>
+    <div class="col-md-12">
+        <canvas id="pressureChart"></canvas>
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Humidity</h4>
+    </div>
+    <div class="col-md-12">
+        <canvas id="humidityChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.0"></script>
+<script type="text/javascript">
+    var ctx = document.getElementById('tempChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: @Json.Serialize(ViewBag.tempLabel),
+            datasets: [
+            {
+                label: '< 14C',
+                backgroundColor: 'rgba(54, 162, 235, 1)',
+                data: @Json.Serialize(ViewBag.tempData4)
+            },
+            {
+                label: '14-18C',
+                backgroundColor: 'rgba(255, 205, 86, 1)',
+                data: @Json.Serialize(ViewBag.tempData3)
+            },
+            {
+                label: '18-24C',
+                backgroundColor: 'rgba(255, 159, 64, 1)',
+                data: @Json.Serialize(ViewBag.tempData2)
+            },
+            {
+                label: '>24C',
+                backgroundColor: 'rgba(255, 99, 132, 1)',
+                data: @Json.Serialize(ViewBag.tempData1)
+            }
+            ]
+        },
+
+        // Configuration options go here
+        options: {
+               scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            },
+            // Container for pan options
+            pan: {
+                // Boolean to enable panning
+                enabled: true,
+
+                // Panning directions. Remove the appropriate direction to disable
+                // Eg. 'y' would only allow panning in the y direction
+                mode: 'xy'
+            },
+
+            // Container for zoom options
+            zoom: {
+                // Boolean to enable zooming
+                enabled: true,
+
+                // Zooming directions. Remove the appropriate direction to disable
+                // Eg. 'y' would only allow zooming in the y direction
+                mode: 'xy',
+            }
+        }
+
+    });
+</script>
+<script type="text/javascript">
+    var ctx = document.getElementById('pressureChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: @Json.Serialize(ViewBag.presLabel),
+            datasets: [
+            {
+                label: '< 1000',
+                backgroundColor: 'rgba(255, 255, 126, 1)',
+                data: @Json.Serialize(ViewBag.presData3)
+            },
+            {
+                label: '1000-1015',
+                backgroundColor: 'rgba(46,204,113,1)',
+                data: @Json.Serialize(ViewBag.presData2)
+            },
+            {
+                label: '> 1015',
+                backgroundColor: 'rgba(255, 99, 132, 1)',
+                data: @Json.Serialize(ViewBag.presData1)
+            }
+            ]
+        },
+
+        // Configuration options go here
+        options: {
+               scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            },
+            // Container for pan options
+            pan: {
+                // Boolean to enable panning
+                enabled: true,
+
+                // Panning directions. Remove the appropriate direction to disable
+                // Eg. 'y' would only allow panning in the y direction
+                mode: 'xy'
+            },
+
+            // Container for zoom options
+            zoom: {
+                // Boolean to enable zooming
+                enabled: true,
+
+                // Zooming directions. Remove the appropriate direction to disable
+                // Eg. 'y' would only allow zooming in the y direction
+                mode: 'xy',
+            }
+        }
+
+    });
+</script>
+
+<script type="text/javascript">
+    var ctx = document.getElementById('humidityChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: @Json.Serialize(ViewBag.humiLabel),
+            datasets: [
+            {
+                label: '< 50',
+                backgroundColor: 'rgba(197, 239, 247, 1)',
+                data: @Json.Serialize(ViewBag.humiData3)
+            },
+            {
+                label: '50-80',
+                backgroundColor: 'rgba(0, 181, 204, 1)',
+                data: @Json.Serialize(ViewBag.humiData2)
+            },
+            {
+                label: '> 80',
+                backgroundColor: 'rgba(31, 58, 147, 1)',
+                data: @Json.Serialize(ViewBag.humiData1)
+            }
+            ]
+        },
+
+        // Configuration options go here
+        options: {
+               scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            },
+            // Container for pan options
+            pan: {
+                // Boolean to enable panning
+                enabled: true,
+
+                // Panning directions. Remove the appropriate direction to disable
+                // Eg. 'y' would only allow panning in the y direction
+                mode: 'xy'
+            },
+
+            // Container for zoom options
+            zoom: {
+                // Boolean to enable zooming
+                enabled: true,
+
+                // Zooming directions. Remove the appropriate direction to disable
+                // Eg. 'y' would only allow zooming in the y direction
+                mode: 'xy',
+            }
+        }
+
+    });
+</script>

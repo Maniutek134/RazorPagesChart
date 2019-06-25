@@ -1,0 +1,84 @@
+@page
+@model RazorPagesChart.Pages.AverageIntensities.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageIntensity[0].RoadSegmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageIntensity[0].Intensity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageIntensity[0].Temperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageIntensity[0].Pressure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageIntensity[0].Humidity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageIntensity[0].Visibility)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageIntensity[0].WindSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageIntensity[0].WindDeg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageIntensity[0].AverageMeasurementTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AverageIntensity) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoadSegmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Intensity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pressure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Humidity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visibility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WindSpeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WindDeg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageMeasurementTime)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

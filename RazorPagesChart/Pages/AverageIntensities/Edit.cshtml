@@ -1,0 +1,75 @@
+@page
+@model RazorPagesChart.Pages.AverageIntensities.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AverageIntensity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AverageIntensity.RoadSegmentId" class="control-label"></label>
+                <input asp-for="AverageIntensity.RoadSegmentId" class="form-control" />
+                <span asp-validation-for="AverageIntensity.RoadSegmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageIntensity.Intensity" class="control-label"></label>
+                <input asp-for="AverageIntensity.Intensity" class="form-control" />
+                <span asp-validation-for="AverageIntensity.Intensity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageIntensity.Temperature" class="control-label"></label>
+                <input asp-for="AverageIntensity.Temperature" class="form-control" />
+                <span asp-validation-for="AverageIntensity.Temperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageIntensity.Pressure" class="control-label"></label>
+                <input asp-for="AverageIntensity.Pressure" class="form-control" />
+                <span asp-validation-for="AverageIntensity.Pressure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageIntensity.Humidity" class="control-label"></label>
+                <input asp-for="AverageIntensity.Humidity" class="form-control" />
+                <span asp-validation-for="AverageIntensity.Humidity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageIntensity.Visibility" class="control-label"></label>
+                <input asp-for="AverageIntensity.Visibility" class="form-control" />
+                <span asp-validation-for="AverageIntensity.Visibility" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageIntensity.WindSpeed" class="control-label"></label>
+                <input asp-for="AverageIntensity.WindSpeed" class="form-control" />
+                <span asp-validation-for="AverageIntensity.WindSpeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageIntensity.WindDeg" class="control-label"></label>
+                <input asp-for="AverageIntensity.WindDeg" class="form-control" />
+                <span asp-validation-for="AverageIntensity.WindDeg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageIntensity.AverageMeasurementTime" class="control-label"></label>
+                <input asp-for="AverageIntensity.AverageMeasurementTime" class="form-control" />
+                <span asp-validation-for="AverageIntensity.AverageMeasurementTime" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="AverageIntensity.Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

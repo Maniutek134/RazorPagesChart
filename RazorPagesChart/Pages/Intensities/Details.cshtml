@@ -1,0 +1,43 @@
+@page
+@model RazorPagesChart.Pages.Intensities.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Intensity</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Intensity.RoadSegmentId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Intensity.RoadSegmentId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Intensity.Intenstiy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Intensity.Intenstiy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Intensity.MeasureTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Intensity.MeasureTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Intensity.DbTemperature)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Intensity.DbTemperature.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Intensity.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

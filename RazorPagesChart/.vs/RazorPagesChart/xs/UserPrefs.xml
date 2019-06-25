@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{30BF9B85-DEF9-4168-B3F4-6184FD7C523A}|Default">
+  <MonoDevelop.Ide.ItemProperties.RazorPagesChart PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/Charts/Index.cshtml.cs">
+    <Files>
+      <File FileName="Pages/Charts/Index.cshtml.cs" Line="28" Column="12" />
+      <File FileName="Pages/Charts/Index.cshtml" Line="14" Column="8" />
+      <File FileName="Model/DataBaseGdyniaContext.cs" Line="54" Column="1" />
+      <File FileName="Model/AverageIntensity.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RazorPagesChart" expanded="True">
+            <Node name="RazorPagesChart" expanded="True">
+              <Node name="Model" expanded="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="Charts" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="appsettings.Development.json" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
